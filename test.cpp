@@ -12,13 +12,8 @@ void fillFlights(int pCantidad, int pStartHour, int pEndHour) {
     for (int i = 0; i < pCantidad; i++)
     {
         int hour = rand() % (pEndHour-pStartHour) + pStartHour;
-        int minutes;
-        if (hour != pEndHour)
-        {
-            minutes = rand() % 60;
-        } else {
-            minutes = 60;
-        }
+        int minutes = rand() % 18;
+
         Flight* vuelo = new Flight(hour, minutes);
         Vuelos->add(vuelo);
     }
@@ -30,6 +25,7 @@ void fillFlights(int pCantidad, int pStartHour, int pEndHour) {
 int main() {
 
     fillFlights(19, 1, 23);
+
     for (int i = 0; i < Vuelos->getSize(); i++)
         cout << Vuelos->find(i)->flightTimeString() << "y el entero es: " << Vuelos->find(i)->getIntTimeValue() << endl;
 

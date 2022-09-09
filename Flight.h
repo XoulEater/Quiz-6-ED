@@ -38,11 +38,11 @@ class Flight {
 
         int getIntTimeValue() {
             int result = 0;        
-            tm * startDay = localtime(&flightTime);
-            startDay->tm_hour = 0;
-            startDay->tm_min = 0;
-            startDay->tm_sec = 0; 
-            result = difftime(flightTime, mktime(startDay)) / 60;
+            tm * midnight = localtime(&flightTime);
+            midnight->tm_hour = 0;
+            midnight->tm_min = 0;
+            midnight->tm_sec = 0; 
+            result = difftime(flightTime, mktime(midnight)) / 60;
             return result;
         }
 };
